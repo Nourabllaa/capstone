@@ -156,7 +156,7 @@ def create_app(test_config=None):
        if not body:
           abort(400)
 
-       title = body.get('name', myActor.name)
+       name = body.get('name', myActor.name)
        age = body.get('age', myActor.age)
        gender = body.get('gender', myActor.gender)
        
@@ -166,9 +166,9 @@ def create_app(test_config=None):
           myActor.name = name
        if 'age' in body:
          myActor.age = age
-
        if 'gender' in body:
          myActor.gender = gender
+         
        myActor.update()
 
       # return result 
