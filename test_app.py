@@ -287,19 +287,20 @@ class CastingAgencyTestCase(unittest.TestCase):
         
 
     def test_patch_actor(self):
-        myActor = Actor(name='Saja', age=22, gender='Female')
-        myActor.create()
-        actor_id = myActor.id
-        edit_actor = {
-            'name': 'Noura ',
-            'age': 21,
+        act = Actor(name='ahmad',age=50,gender='male')
+        act.create()
+        actor_id = act.id
+
+        edit_actor1 = {
+            'name': 'name2',
+            'age': 34,
             'gender': 'Female'
         }
-        response = self.client().patch(f'/actors/{actor_id}',headers=self.executive_producer_token, json=edit_actor)
+        response = self.client().patch(f'/actors/{actor_id }',headers=self.executive_producer_token, json=edit_actor1)
         data = json.loads(response.data)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(data['success'], True)
-        # need to add 
+
         
     def test_404_patch_actor(self):
         edit_actor = {
