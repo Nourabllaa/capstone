@@ -16,7 +16,7 @@ class CastingAgencyTestCase(unittest.TestCase):
         self.app = create_app()
         self.client = self.app.test_client
         self.database_name = "sample_heroku"
-        self.database_path = os.environ['SQLALCHEMY_DATABASE_URI']
+        self.database_path = 'postgresql://noura.@localhost:5432/sample_heroku'
         setup_db(self.app, self.database_path)
 
         self.new_actor = {
