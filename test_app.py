@@ -8,6 +8,8 @@ from app import create_app
 from models import * 
 
 
+
+
 class CastingAgencyTestCase(unittest.TestCase):
     # This class represents the Casting Agency test case
 
