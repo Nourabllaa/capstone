@@ -1,10 +1,9 @@
-### Casting Agency
+# Casting Agency
 
 The Casting Agency is an API that models a company responsible for managing movies and actors and it use the API to store, update, delete and retrieve movies and actors.
 
-This is the last project of the Full-Stack Developer Nanodegree from Udacity. 
+This is the last project of the Full-Stack Developer Nanodegree from Udacity. It covers the following topics:
 
-It covers the following topics:
 - Database modeling with PostgreSQL and SQLAlchemy and database Migrations.
 - API Development and RESTful APIs.
 - Perform CRUD operations (create, read, update, delete) on database with Flask.
@@ -16,7 +15,7 @@ The API is hosted live at Heroku:
 https://noura-cap.herokuapp.com
 
 
-# Models:
+## Models:
 Movies with attributes title and release date
 Actors with attributes name, age and gender
 
@@ -25,6 +24,7 @@ Actors with attributes name, age and gender
 # Movie:
 - GET '/actors': return a list of all actors
 
+```bash
 {
     "actors": [
         {
@@ -42,10 +42,12 @@ Actors with attributes name, age and gender
     ],
     "success": true
 }
+```
 
 
 - GET ''/actors/<int:actor_id>'': return actor with id 'actor_id'
 
+```bash
 {
     "actor": [
         {
@@ -57,38 +59,48 @@ Actors with attributes name, age and gender
     ],
     "success": true
 }
+```
 
 
 - POST '/actors': craete an actor with info specified in request json 
 request JSON:
+
+```bash
 {
     "name": "ola ",
     "age": "50",
     "gender": "female"
 }
+```
 
 response:
+```bash
 {
     "actor": 4,
     "success": true
 }
+```
 
 - DELETE '/actors/<int:id>': delete actor with id 'id' 
-
+```bash
 {
     "delete": 4,
     "success": true
 }
+```
 
 - PATCH '/actors/<int:actor_id>': update the actor with id 'actor_id' usig request json. 
 
 request JSON:
+```bash
 {
     "name": "salman"
 }
+```
 
 
 response:
+```bash
 {
     "actors": {
         "age": 22,
@@ -98,9 +110,12 @@ response:
     },
     "success": true
 }
+```
 
 # Actor:
 - GET '/movies': return a list of all movies
+
+```bash
 {
     "movies": [
         {
@@ -116,9 +131,12 @@ response:
     ],
     "success": true
 }
+```
 
 
 - GET '/movies/<int:movie_id>': return movie with id 'movie_id'
+
+```bash
 {
     "movie": [
         {
@@ -129,38 +147,49 @@ response:
     ],
     "success": true
 }
+```
 
 
 
 - POST '/movies': craete a movie with info specified in request json 
 request JSON:
+
+```bash
 {
     "title": "The Imitation Game",
     "release": "2014-12-12"
 } 
+```
 
 response:
+```bash
 {
     "movie": 4,
     "success": true
 }
-
+```
 - DELETE '/movies/<int:id>': delete movie with id 'id' 
 
+```bash
 {
     "delete": 3,
     "success": true
 }
+```
 
 - PATCH '/movies/<int:movie_id>': update the movie with id 'movie_id' usig request json. 
 
 request JSON:
+```bash
 {
     "title":"The terminal"
 }
+```
 
 
 response:
+
+```bash
 {
     "movie": {
         "id": 1,
@@ -170,6 +199,7 @@ response:
     "success": true,
     "updated": 1
 }
+```
 
 
 
@@ -177,7 +207,7 @@ response:
 ## Roles and Users:
 There are 3 types of roles and 8 permissions each role have different permissions as below: 
 
-#Casting Assistant:
+### Casting Assistant:
 
 permissions:
 
@@ -185,7 +215,7 @@ permissions:
 - "get:movies"
 
 
-Casting Director:
+### Casting Director:
 
 permissions:
 - "get:actors"
@@ -196,7 +226,7 @@ permissions:
 - "delete:actors"
 
 
-Executive Producer:
+### Executive Producer:
 
 permissions:
 - "get:actors"
@@ -245,7 +275,7 @@ pip3 install -r requirements.txt
 This will install all of the required packages we selected within the `requirements.txt` file.
 
 
-### setup.sh
+### setup.sh file 
 
 Replace the values of this file to reflect your setup.
 
@@ -274,15 +304,15 @@ To export the credentials as environment variable, after activating your environ
 source setup.sh
 ```
 
-### Database Setup
-# 1- Create Local Database:
+## Database Setup
+### 1- Create Local Database:
 Run the following command:
 ```bash
 createdb agency
 ```
 export the database URI as an environment variable with the key DATABASE_URL.
 
-# 2-Run Database Migrations:
+### 2-Run Database Migrations:
 
 Run the following command:
 ```bash
@@ -315,7 +345,7 @@ To run the tests run the following command:
 python3 test_app.py
 ```
 
-# heroku 
+## heroku 
 
 after you push your project to heroku make sure to change the 'DATABASE_URL' varible in setup.sh file to your new heroku databse link.
 
