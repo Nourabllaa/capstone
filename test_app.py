@@ -26,20 +26,20 @@ class CastingAgencyTestCase(unittest.TestCase):
             'age': 22,
             'gender': 'Female'
         }
-        self.new_movie = {
-            'title': ' A day of a Life ',
-            'release': '2020-5-14'
-
-        }
-        self.edit_movie = {
-            'title': ' doooooooooonnnnnnneeee ',
-            'release': '2020-5-14'
-        }
         self.new_actor = {
             'name': 'Saja  ',
             'age': 22,
             'gender': 'Female'
         }
+        self.new_movie = {
+            'title': ' A Day of a Life ',
+            'release': '2020-5-14'
+        }
+        self.edit_movie = {
+            'title': ' A Day to Demember ',
+            'release': '2020-5-14'
+        }
+       
 
 
         # retrive users tokens from .setuu.sh file and create headers 
@@ -103,7 +103,7 @@ class CastingAgencyTestCase(unittest.TestCase):
 
     def test_get_specific_actor(self):
         # database must contain actor with id=1 
-        res = self.client().get('/actors/94', headers=self.casting_assistant_token)
+        res = self.client().get('/actors/1', headers=self.casting_assistant_token)
         data = json.loads(res.data)
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data['success'], True)
@@ -149,7 +149,7 @@ class CastingAgencyTestCase(unittest.TestCase):
 
     def test_get_specific_movie(self):
         # database must contain movie with id=1 
-        res = self.client().get('/movies/91', headers=self.casting_assistant_token)
+        res = self.client().get('/movies/1', headers=self.casting_assistant_token)
         data = json.loads(res.data)
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data['success'], True)
@@ -219,12 +219,12 @@ class CastingAgencyTestCase(unittest.TestCase):
 
 
     def test_delete_actor(self):
-        res = self.client().delete('/actors/130', headers=self.executive_producer_token)
+        res = self.client().delete('/actors/2', headers=self.executive_producer_token)
         data = json.loads(res.data)
-        actor = Actor.query.filter(id==130).one_or_none()
+        actor = Actor.query.filter(id==2).one_or_none()
         self.assertEqual(res.status_code, 200) 
         self.assertEqual(data['success'], True)
-        self.assertEqual(data['delete'], 130)
+        self.assertEqual(data['delete'], 3)
     
 
 
@@ -245,57 +245,69 @@ class CastingAgencyTestCase(unittest.TestCase):
 
 
     def test_delete_movie(self):
-        res = self.client().delete('/movies/127', headers=self.executive_producer_token)
+        res = self.client().delete('/movies/2', headers=self.executive_producer_token)
         data = json.loads(res.data)
-        movie = Movie.query.filter(Movie.id == 127).one_or_none()
+        movie = Movie.query.filter(Movie.id == 2).one_or_none()
         self.assertEqual(res.status_code, 200) 
         self.assertEqual(data['success'], True)
-        self.assertEqual(data['delete'], 127)
+        self.assertEqual(data['delete'], 2)
     
 
     def test_403_auth_forbidden_delete_movie(self):
-        res = self.client().delete('/movies/91', headers=self.casting_assistant_token)
+        res = self.client().delete('/movies/200', headers=self.casting_assistant_token)
         data = json.loads(res.data)
         self.assertEqual(res.status_code, 403)
         self.assertEqual(data['success'], False)
 
+    '''
+    Patch Movie   
+    success behavior : test_patch_movie
+    error behavior: test_404_patch_movie
+    '''
+
   
- # test code 
+
     def test_patch_movie(self):
         myMovie = Movie(title='capstone', release='2020-1-1')
         myMovie.create()
         movie_id = myMovie.id
         edit_movie = {
-            'title': 'capstone2',
+            'title': 'Full stack developer',
             'release': '2021-1-1'
         }
         response = self.client().patch(f'/movies/{movie_id }', headers=self.executive_producer_token, json=edit_movie)
         data = json.loads(response.data)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(data['success'], True)
-        # need to add 
+     
         
         
     def test_404_patch_movie(self):
         edit_movie = {
-            'title': 'capstone2',
+            'title': 'Full stack',
             'release': '2021-1-1'
         }
         response = self.client().patch('/movies/2000',headers=self.executive_producer_token, json=edit_movie)
         data = json.loads(response.data)
         self.assertEqual(response.status_code, 404)
         self.assertEqual(data['success'], False)
-        # need to add 
+      
+
+    '''
+    Patch Actor   
+    success behavior : test_patch_actor
+    error behavior: test_404_patch_actor
+    ''' 
         
 
     def test_patch_actor(self):
-        act = Actor(name='ahmad',age=50,gender='male')
+        act = Actor(name='fahad',age=50,gender='male')
         act.create()
         actor_id = act.id
 
         edit_actor1 = {
-            'name': 'name2',
-            'age': 34,
+            'name': 'khawla',
+            'age': 44,
             'gender': 'Female'
         }
         response = self.client().patch(f'/actors/{actor_id }',headers=self.executive_producer_token, json=edit_actor1)
@@ -306,15 +318,15 @@ class CastingAgencyTestCase(unittest.TestCase):
         
     def test_404_patch_actor(self):
         edit_actor = {
-            'name': 'Noura ',
-            'age': 21,
+            'name': 'jana ',
+            'age': 15,
             'gender': 'Female'
         }
         response = self.client().patch('/actors/2000',headers=self.executive_producer_token, json=edit_actor)
         data = json.loads(response.data)
         self.assertEqual(response.status_code, 404)
         self.assertEqual(data['success'], False)
-        # need to add 
+        
 
     
 

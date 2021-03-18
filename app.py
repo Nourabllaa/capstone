@@ -104,47 +104,39 @@ def create_app(test_config=None):
             'success': True,
             'actor': [actor.format()]
         }), 200
-
-
-
-
-
-  @app.route('/actors/<int:actor_id>/', methods=['PATCH'])
+  
+  @app.route('/actors/<int:actor_id>', methods=['PATCH'])
   @requires_auth('patch:actors')
-  def update_actor(payload, id):
-    body=request.get_json()
+  def update_actors(payload, actor_id):
     try:
-      actor=Actor.query.filter(id=id).one_or_none()
+      body = request.get_json()
+      actor = Actor.query.filter(Actor.id == actor_id).one_or_none()
+
       if actor is None:
         abort(404)
 
-      
-      name=body.get('name',actor.name)
-      age=body.get('age',actor.age)
-      gender=body.get('gender',actor.gender)
-
       if 'name' in body:
-        actor.name = name
-      if 'age' in body: 
-        actor.age = age
+        actor.name = body.get('name')
+      if 'age' in body:
+        actor.age = body.get('age')
       if 'gender' in body:
-        actor.gender = gender
-      
+        actor.gender = body.get('gender')
+
       actor.update()
       return jsonify({
-        'success': True,
-        'updated':actor.id,
-        'actor': actor.format()
-        }),200
+        'success':True,
+        'actors': actor.format()
+        }), 200
     except:
-      abort(422)
+      abort(404)
+   
 
   @app.route('/movies/<int:movie_id>', methods=['PATCH'])
   @requires_auth('patch:movies')
   def update_movies(payload, movie_id):
     body=request.get_json()
     try:
-      myMovie = Movie.query.filter(Movie.id == id).one_or_none()
+      myMovie = Movie.query.filter(Movie.id == movie_id).one_or_none()
       if myMovie is None:
         abort(404)
       if not body:
@@ -166,7 +158,7 @@ def create_app(test_config=None):
         'movie': myMovie.format()
         }), 200
     except:
-      abort(422)
+      abort(404)
 
   @app.route('/actors', methods=['POST'])
   @requires_auth('post:actors')
