@@ -5,8 +5,11 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
-database_path = os.environ.get('SQLALCHEMY_DATABASE_URI')
+
+database_name = 'agency'
 db = SQLAlchemy()
+database_path = os.getenv('DATABASE_URL')
+local_db='postgres://noura.@localhost:5432/agency'
 
 '''
 setup_db(app)
@@ -17,6 +20,7 @@ def setup_db(app, database_path=database_path):
   app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
   db.app = app
   db.init_app(app) 
+  app.secret_key = os.getenv('SECRET')
   #db.create_all()
 
 

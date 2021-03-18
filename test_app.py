@@ -17,8 +17,8 @@ class CastingAgencyTestCase(unittest.TestCase):
        # Define test variables and initialize app.
         self.app = create_app()
         self.client = self.app.test_client
-        self.database_name = "sample_heroku"
-        self.database_path = 'postgresql://noura.@localhost:5432/sample_heroku'
+        self.database_name = "agency"
+        self.database_path = 'postgresql://noura.@localhost:5432/agency'
         setup_db(self.app, self.database_path)
 
         self.new_actor = {
