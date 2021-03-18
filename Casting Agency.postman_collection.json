@@ -92,7 +92,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"Ahamed \",\n    \"age\": \"50\",\n    \"gender\": \"Male\"\n}",
+					"raw": "{\n    \"name\": \"ola \",\n    \"age\": \"50\",\n    \"gender\": \"female\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -154,7 +154,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "https://noura-cap.herokuapp.com/actors/2",
+					"raw": "https://noura-cap.herokuapp.com/actors/4",
 					"protocol": "https",
 					"host": [
 						"noura-cap",
@@ -163,7 +163,7 @@
 					],
 					"path": [
 						"actors",
-						"2"
+						"4"
 					]
 				}
 			},
@@ -299,7 +299,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"title\":\"The terminal\"\n}\n",
+					"raw": "{\n    \"title\":\"The terminal 2 \"\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -337,7 +337,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://noura-cap.herokuapp.com/movies/2",
+					"raw": "https://noura-cap.herokuapp.com/movies/4",
 					"protocol": "https",
 					"host": [
 						"noura-cap",
@@ -346,7 +346,7 @@
 					],
 					"path": [
 						"movies",
-						"2"
+						"4"
 					]
 				}
 			},
