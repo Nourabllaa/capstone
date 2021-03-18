@@ -279,7 +279,7 @@ class CastingAgencyTestCase(unittest.TestCase):
         data = json.loads(response.data)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(data['success'], True)
-     
+
         
         
     def test_404_patch_movie(self):

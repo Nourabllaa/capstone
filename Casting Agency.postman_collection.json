@@ -1,0 +1,386 @@
+{
+	"info": {
+		"_postman_id": "6239c071-4453-447f-be35-34361b1f9cca",
+		"name": "Casting Agency",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get all actors",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InI3cERfUk9kZS1jOXEzX3FRVVFJVSJ9.eyJpc3MiOiJodHRwczovL2F1dGgtZXgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYwMTg1NjVmODA0ZGVjMDA2YTg0YmNjMyIsImF1ZCI6ImNhc3RpbmdfYWdlbmN5IiwiaWF0IjoxNjE2MDU4ODU2LCJleHAiOjE2MTYxNDUyNTYsImF6cCI6IkcxVlpZZlpPRGh1d3dITU1IR0JOUGZjY0lpZlJJN25FIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.asY9toKxjKFJSYtC-MmMse_vwzFYKBVD_NHZaqDE-ZZs7kHUIHE078xqVn7EfDGdNvY3XyvpSWbgvU9DhW4w-zDBGmTwvNGw7vBc0XMgfeWx0CjEw3M_80edCL-4iEJvwKm61P9s5kRsncOJd6ifgbwL1Jxou3Q03hv68xVq99w6QyhzIRART7wrQYpKJlpI_K8DiOtAOOxRIttusXqf8fI0QyMJvy2riMcnO4A5eSNm5qygNoEDCKOkJ4OWO9jVut1H1l14WxU2pk-_zkvs0NGacRciamv0iZWKFhJnUZWtwn1He-HwI32fgGGJ5Dyn9V3AqetGwhchvAfIljYGQw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://noura-cap.herokuapp.com/actors",
+					"protocol": "https",
+					"host": [
+						"noura-cap",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"actors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get actor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://noura-cap.herokuapp.com/actors/1",
+					"protocol": "https",
+					"host": [
+						"noura-cap",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"actors",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post actor1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Noura Albllaa\",\n    \"age\": \"22\",\n    \"gender\": \"Female\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://noura-cap.herokuapp.com/actors",
+					"protocol": "https",
+					"host": [
+						"noura-cap",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"actors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post actor2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Ahamed \",\n    \"age\": \"50\",\n    \"gender\": \"Male\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://noura-cap.herokuapp.com/actors",
+					"protocol": "https",
+					"host": [
+						"noura-cap",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"actors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patch actor",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"salman\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://noura-cap.herokuapp.com/actors/1",
+					"protocol": "https",
+					"host": [
+						"noura-cap",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"actors",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete actor",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://noura-cap.herokuapp.com/actors/2",
+					"protocol": "https",
+					"host": [
+						"noura-cap",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"actors",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all movies",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://noura-cap.herokuapp.com/movies",
+					"protocol": "https",
+					"host": [
+						"noura-cap",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get movie",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://noura-cap.herokuapp.com/movies/1",
+					"protocol": "https",
+					"host": [
+						"noura-cap",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"movies",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post movie1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"The Imitation Game\",\n    \"release\": \"2014-12-12\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://noura-cap.herokuapp.com/movies",
+					"protocol": "https",
+					"host": [
+						"noura-cap",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post movie2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Catch Me If You Can\",\n    \"release\": \"2002-12-25\"\n  \n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://noura-cap.herokuapp.com/movies",
+					"protocol": "https",
+					"host": [
+						"noura-cap",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patch movie",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\":\"The terminal\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://noura-cap.herokuapp.com/movies/1",
+					"protocol": "https",
+					"host": [
+						"noura-cap",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"movies",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete movie",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://noura-cap.herokuapp.com/movies/2",
+					"protocol": "https",
+					"host": [
+						"noura-cap",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"movies",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InI3cERfUk9kZS1jOXEzX3FRVVFJVSJ9.eyJpc3MiOiJodHRwczovL2F1dGgtZXgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYwMTg1NjVmODA0ZGVjMDA2YTg0YmNjMyIsImF1ZCI6ImNhc3RpbmdfYWdlbmN5IiwiaWF0IjoxNjE2MDU4ODU2LCJleHAiOjE2MTYxNDUyNTYsImF6cCI6IkcxVlpZZlpPRGh1d3dITU1IR0JOUGZjY0lpZlJJN25FIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.asY9toKxjKFJSYtC-MmMse_vwzFYKBVD_NHZaqDE-ZZs7kHUIHE078xqVn7EfDGdNvY3XyvpSWbgvU9DhW4w-zDBGmTwvNGw7vBc0XMgfeWx0CjEw3M_80edCL-4iEJvwKm61P9s5kRsncOJd6ifgbwL1Jxou3Q03hv68xVq99w6QyhzIRART7wrQYpKJlpI_K8DiOtAOOxRIttusXqf8fI0QyMJvy2riMcnO4A5eSNm5qygNoEDCKOkJ4OWO9jVut1H1l14WxU2pk-_zkvs0NGacRciamv0iZWKFhJnUZWtwn1He-HwI32fgGGJ5Dyn9V3AqetGwhchvAfIljYGQw",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
