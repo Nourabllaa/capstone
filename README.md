@@ -251,9 +251,9 @@ permissions:
 
 
 
-### Getting Started
+## Getting Started
 
-### Virtual Enviornment
+## Virtual Enviornment
 
 We recommend working within a virtual environment whenever using Python for projects. This keeps your dependencies for each project separate and organaized. run the follwing command  in your project directory for setting up a virual enviornment using macos:
 
@@ -275,7 +275,7 @@ source env/bin/activate
 for more details and other platforms visit:
 (https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
 
-#### PIP Dependencies
+## Dependencies
 
 Once you have your virtual environment setup and running, install dependencies by naviging to your project directory and running:
 
@@ -286,7 +286,7 @@ pip3 install -r requirements.txt
 This will install all of the required packages we selected within the `requirements.txt` file.
 
 
-### setup.sh file 
+## setup.sh file 
 
 Replace the values of this file to reflect your setup.
 
@@ -316,14 +316,14 @@ source setup.sh
 ```
 
 ## Database Setup
-### 1- Create Local Database:
+#### 1- Create Local Database:
 Run the following command:
 ```bash
 createdb agency
 ```
 export the database URI as an environment variable with the key DATABASE_URL.
 
-### 2-Run Database Migrations:
+#### 2-Run Database Migrations:
 
 Run the following command:
 ```bash
