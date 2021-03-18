@@ -22,7 +22,8 @@ Actors with attributes name, age and gender
 ## Endpoints:
 
 ## Movie:
-### GET '/actors': return a list of all actors
+### GET '/actors': 
+return a list of all actors
 
 ```bash
 {
@@ -45,7 +46,8 @@ Actors with attributes name, age and gender
 ```
 
 
-### GET ''/actors/<int:actor_id>'': return actor with id 'actor_id'
+### GET ''/actors/<int:actor_id>'': 
+return actor with id 'actor_id'
 
 ```bash
 {
@@ -62,9 +64,10 @@ Actors with attributes name, age and gender
 ```
 
 
-### POST '/actors': craete an actor with info specified in request json 
-request JSON:
+### POST '/actors': 
+craete an actor with info specified in request json 
 
+request JSON:
 ```bash
 {
     "name": "ola ",
@@ -81,7 +84,8 @@ response:
 }
 ```
 
-### DELETE '/actors/<int:id>': delete actor with id 'id' 
+### DELETE '/actors/<int:id>':
+delete actor with id 'id' 
 ```bash
 {
     "delete": 4,
@@ -89,7 +93,8 @@ response:
 }
 ```
 
-### PATCH '/actors/<int:actor_id>': update the actor with id 'actor_id' usig request json. 
+### PATCH '/actors/<int:actor_id>': 
+update the actor with id 'actor_id' usig request json. 
 
 request JSON:
 ```bash
@@ -113,7 +118,8 @@ response:
 ```
 
 ## Actor:
-### GET '/movies': return a list of all movies
+### GET '/movies':
+return a list of all movies
 
 ```bash
 {
@@ -134,7 +140,8 @@ response:
 ```
 
 
-### GET '/movies/<int:movie_id>': return movie with id 'movie_id'
+### GET '/movies/<int:movie_id>': 
+return movie with id 'movie_id'
 
 ```bash
 {
@@ -151,7 +158,9 @@ response:
 
 
 
-### POST '/movies': craete a movie with info specified in request json 
+### POST '/movies': 
+craete a movie with info specified in request json.
+
 request JSON:
 
 ```bash
@@ -168,7 +177,8 @@ response:
     "success": true
 }
 ```
-### DELETE '/movies/<int:id>': delete movie with id 'id' 
+### DELETE '/movies/<int:id>': 
+delete movie with id 'id' 
 
 ```bash
 {
@@ -177,7 +187,8 @@ response:
 }
 ```
 
-### PATCH '/movies/<int:movie_id>': update the movie with id 'movie_id' usig request json. 
+### PATCH '/movies/<int:movie_id>': 
+update the movie with id 'movie_id' usig request json. 
 
 request JSON:
 ```bash
