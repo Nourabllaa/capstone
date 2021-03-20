@@ -358,7 +358,59 @@ python3 test_app.py
 
 ## heroku 
 
+### Create Heroku app
+
+in your project command line run: 
+```bash
+run heroku create name_of_your_app 
+```
+
+The output will include a git url for your Heroku application. Copy this as, we'll use it in the next step.Now check your Heroku Dashboard in the browser, you'll see the application you just created. 
+
+### Add git remote for Heroku to local repository
+Using the git url obtained from the last step, in terminal run:
+```bash
+ git remote add heroku heroku_git_url
+ ``` 
+
+
+### Add postgresql add on for our database
+Heroku has an addon for apps for a postgresql database instance. Run this code in order to create your database and connect it to your application: 
+```bash
+heroku addons:create heroku-postgresql:hobby-dev --app name_of_your_application
+``` 
+
+To check your configuration variables in Heroku run:
+```bash
+heroku config --app name_of_your_application
+```
+
+You will see DATABASE_URL and the URL of the database you just created.
+
+### Go and fix your configurations in Heroku
+In the browser, go to your Heroku Dashboard and access your application's settings. Reveal your config variables and start adding all the required environment variables for your project.
+
+### Push it!
+```bash
+git push heroku master
+```
+
+some handy commands if your using python-3.8.1:
+```bash
+heroku stack 
+heroku stack:set heroku-18
+```
+
 after you push your project to heroku make sure to change the 'DATABASE_URL' varible in setup.sh file to your new heroku databse link.
+
+### Run migrations
+Once your app is deployed, run migrations by running:
+```bash
+ heroku run python manage.py db upgrade --app name_of_your_application
+ ```
+
+
+
 
 
 ## Authors

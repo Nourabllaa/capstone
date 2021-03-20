@@ -1,15 +1,15 @@
 import os
 import json
-from flask import request, _request_ctx_stack ,abort
+from flask import request, _request_ctx_stack, abort
 from functools import wraps
 from jose import jwt
 import logging
 from urllib.request import urlopen
 
 
-AUTH0_DOMAIN = 'auth-ex.us.auth0.com'
-ALGORITHMS = ['RS256'] 
-API_AUDIENCE ='casting_agency'
+AUTH0_DOMAIN = os.environ.get('AUTH0_DOMAIN')
+ALGORITHMS =  os.environ.get('ALGORITHMS')
+API_AUDIENCE = os.environ.get('API_AUDIENCE')
 
 
 '''
@@ -28,12 +28,13 @@ class AuthError(Exception):
  Auth Header
 '''
 
+
 def get_token_auth_header():
-   # raise an AuthError if the header is malformed
+    # raise an AuthError if the header is malformed
     if 'Authorization' not in request.headers:
         abort(401)
 
-    # get the header from the request and split bearer and the token   
+    # get the header from the request and split bearer and the token
     auth_header = request.headers['Authorization']
     header_parts = auth_header.split(' ')
 
@@ -45,7 +46,7 @@ def get_token_auth_header():
     # return the token part of the header
     return header_parts[1]
 
-  
+
 def check_permissions(permission, payload):
     # Raise an AuthError if permissions are not included in the payload
     if 'permissions' not in payload:
@@ -53,8 +54,9 @@ def check_permissions(permission, payload):
             'code': 'invalid_claims',
             'description': 'Permissions not included in JWT.'
         }, 400)
-        
-    # Raise an AuthError if the requested permission string is not in the payload permissions array
+
+    # Raise an AuthError if the requested permission string is not
+    # in the payload permissions array
     if permission not in payload['permissions']:
         raise AuthError({
             'code': 'unauthorized',
@@ -64,17 +66,14 @@ def check_permissions(permission, payload):
     return True
 
 
-
-
 def verify_decode_jwt(token):
     # Public key from Auth0
     jsonurl = urlopen(f'https://{AUTH0_DOMAIN}/.well-known/jwks.json')
     jwks = json.loads(jsonurl.read())
-    
-    
+
     # Data
     unverified_header = jwt.get_unverified_header(token)
-    # Choose key 
+    # Choose key
     rsa_key = {}
     if 'kid' not in unverified_header:
         raise AuthError({
@@ -113,7 +112,8 @@ def verify_decode_jwt(token):
         except jwt.JWTClaimsError:
             raise AuthError({
                 'code': 'invalid_claims',
-                'description': 'Incorrect claims. Please, check the audience and issuer.'
+                'description': 'Incorrect claims. Please, check the audience' +
+                ' and issuer.'
             }, 401)
         except Exception:
             raise AuthError({
@@ -127,21 +127,21 @@ def verify_decode_jwt(token):
             }, 400)
 
 
-
 def requires_auth(permission=''):
     def requires_auth_decorator(f):
         @wraps(f)
-        def wrapper(*args,**kwargs):
+        def wrapper(*args, **kwargs):
             # get the token
-            token=get_token_auth_header()
+            token = get_token_auth_header()
             try:
                 # decode jwt
-                payload=verify_decode_jwt(token)
+                payload = verify_decode_jwt(token)
             except Exception as e:
                 logging.exception('Error caught in payload')
                 raise AuthError({
                     'code': 'unauthorized',
-                    'description': 'User does not have the required permissions.'
+                    'description': 'User does not have the required' +
+                    ' permissions.'
                 }, 401)
             # validate claims and check the requested permission
             check_permissions(permission, payload)
