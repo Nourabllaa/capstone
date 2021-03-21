@@ -410,9 +410,6 @@ Once your app is deployed, run migrations by running:
  ```
 
 
-
-
-
 ## Authors
 
 - Noura Albllaa, Udacity Full Stack Web Developer Nanodegree Student.
