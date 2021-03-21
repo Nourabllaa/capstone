@@ -18,11 +18,11 @@ setup_db(app)
 
 
 def setup_db(app, database_path=database_path):
-  app.config["SQLALCHEMY_DATABASE_URI"] = database_path
-  app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-  db.app = app
-  db.init_app(app)
-  app.secret_key = os.getenv('SECRET')
+    app.config["SQLALCHEMY_DATABASE_URI"] = database_path
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    db.app = app
+    db.init_app(app)
+    app.secret_key = os.getenv('SECRET')
 
 
 class Movie(db.Model):
